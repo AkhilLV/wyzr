@@ -20,8 +20,8 @@ db.run(`
 db.run("PRAGMA foreign_keys = ON");
 
 db.run(`
-    CREATE TABLE IF NOT EXISTS search_history (
-      search_history_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    CREATE TABLE IF NOT EXISTS searchs (
+      search_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       user_id INTEGER NOT NULL,
       query TEXT NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users(user_id)
