@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,7 +18,7 @@ code {
     monospace;
 }
 
-button {
+/* button {
   background: #fff;
   border: 1px solid #444;
   padding: 9px 20px;
@@ -26,24 +32,47 @@ button:hover {
   background-color: #111;
   color: #fff;
   transform: translateY(-2px);
-}
+} */
 
 /* Sign in page */
-.container {
+/* .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+} */
 
-button {
+/* button {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px 30px;
+  font-size: 20px;
 }
 
 button img {
   width: 20px;
   height: 20px;
   margin-right: 15px;
+} */
+
+/* Search */
+/* input {
+  background: #eee;
+  font-size: 20px;
+  border: 1px #eee solid;
+  padding: 15px 30px;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: 200ms ease-in-out;
 }
+
+input:focus {
+  background: #444;
+  color: #fff;
+  border: 1px solid #444;
+} */
