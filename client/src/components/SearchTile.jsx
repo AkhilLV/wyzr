@@ -4,7 +4,7 @@ export default function SearchTile({
   id, title, authors = [], thumbnail,
 }) {
   return (
-    <div className="searchTile">
+    <div className="search-tile">
       <img src={thumbnail} alt={title} />
       <h3><Link to={`/book/${id}`}>{title}</Link></h3>
       <p>Authors:</p>

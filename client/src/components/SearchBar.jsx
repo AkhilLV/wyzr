@@ -13,7 +13,7 @@ export default function SearchBar({ setSearchResults }) {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Search for a book" value={query} onChange={(e) => setQuery(e.target.value)} />
         <button type="submit">Search</button>

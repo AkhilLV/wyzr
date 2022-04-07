@@ -7,7 +7,7 @@ export default function Auth() {
   const [searchResults, setSearchResults] = useState(false);
 
   return (
-    <div className="container">
+    <div>
       <SearchBar setSearchResults={setSearchResults} />
       <SearchResults searchResults={searchResults} />
     </div>
