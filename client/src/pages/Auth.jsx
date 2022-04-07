@@ -5,7 +5,7 @@ export default function Auth() {
     <div>
       <button type="button">
         <img src={googleIcon} alt="google-icon" />
-        Sign in with Google
+        <a href="http://localhost:4000/auth/google">Sign in with Google</a>
       </button>
     </div>
   );
