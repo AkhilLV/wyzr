@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
+import SearchTile from "../components/SearchTile";
 
 export default function Auth() {
   const { id } = useParams();
@@ -17,7 +19,8 @@ export default function Auth() {
 
   return (
     <div>
-      {bookData ? <div>{bookData.volumeInfo.title}</div> : null}
+      <Link to="/search">Back</Link>
+      {bookData ? <SearchTile key={bookData.id} id={bookData.id} title={bookData.volumeInfo.title} authors={bookData.volumeInfo.authors} thumbnail={bookData.volumeInfo.imageLinks.smallThumbnail} /> : null}
     </div>
   );
 }
