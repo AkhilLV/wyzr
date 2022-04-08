@@ -1,9 +1,8 @@
 const express = require("express");
 const session = require("express-session");
+const mongoose = require("mongoose");
 require("dotenv").config();
-
 const cors = require("cors");
-
 const passport = require("passport");
 require("./passportConfig");
 
@@ -11,10 +10,6 @@ const SearchRoute = require("./routes/Search");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-
-function isLoggedIn(req, res, next) {
-  req.user ? next() : res.status(401).send({ message: "not_logged_in" });
-}
 
 app.use(
   cors({
@@ -45,9 +40,31 @@ app.get(
 );
 
 app.get("/auth/google/failure", (req, res) => {
-  res.send("Failed to authenticate..");
+  res.status(401).send({ message: "auth_failed" });
 });
 
-app.use("/searches", SearchRoute);
+app.get("/auth/google/success", (req, res) => {
+  if (req.user) {
+    res.send(req.user);
+  } else {
+    res.status(400).send({ message: "auth_failed" });
+  }
+});
 
-app.listen(PORT, () => console.log(`Server is running at PORT: ${PORT}`));
+const isLoggedIn = (req, res, next) => {
+  if (req.user) {
+    return next();
+  }
+  res.status(401).send({ message: "not_logged_in" });
+};
+
+app.use("/searches", isLoggedIn, SearchRoute);
+
+const { CONNECTION_URL } = process.env;
+
+async function main() {
+  await mongoose.connect(CONNECTION_URL);
+  app.listen(PORT, () => console.log(`Server is running at PORT: ${PORT}`));
+}
+
+main();

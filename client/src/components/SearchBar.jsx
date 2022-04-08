@@ -10,6 +10,11 @@ export default function SearchBar({ setSearchResults }) {
     const json = await res.json();
 
     setSearchResults(json.items);
+
+    await fetch(`http://localhost:4000/searches?q=${query}`, {
+      method: "POST",
+      credentials: "include",
+    });
   };
 
   return (
