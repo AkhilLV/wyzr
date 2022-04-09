@@ -1,8 +1,8 @@
 const Search = require("../models/Search");
 
 module.exports = {
-  post: async (req, res) => {
-    const googleId = req.user.googleId;
+  post: async (req) => {
+    const { googleId } = req.user;
     const query = req.query.q;
 
     Search.create({

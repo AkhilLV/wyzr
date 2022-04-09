@@ -4,7 +4,6 @@ import googleIcon from "../assets/google-icon.jpg";
 export default function Auth({ setUser }) {
   // useEffect(() => {
   //   const getUser = async () => {
-  //     console.log("Here"); 
   //     const res = await fetch("http://localhost:4000/auth/google/success", {
   //       credentials: "include",
   //     });

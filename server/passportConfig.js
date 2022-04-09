@@ -11,7 +11,6 @@ passport.use(new GoogleStrategy(
     passReqToCallback: true,
   },
   ((request, accessToken, refreshToken, profile, done) => {
-    console.log(profile);
     User.findOne({ googleId: profile.id }, (err, user) => {
       if (user) return done(err, user);
       User.create({
