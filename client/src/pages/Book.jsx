@@ -20,7 +20,16 @@ export default function Auth() {
   return (
     <div>
       <Link to="/search">Back</Link>
-      {bookData ? <SearchTile key={bookData.id} id={bookData.id} title={bookData.volumeInfo.title} authors={bookData.volumeInfo.authors} thumbnail={bookData.volumeInfo.imageLinks.smallThumbnail} /> : null}
+      {bookData
+        ? (
+          <SearchTile
+            key={bookData.id}
+            id={bookData.id}
+            title={bookData.volumeInfo.title}
+            authors={bookData.volumeInfo.authors}
+            thumbnail={bookData.volumeInfo.imageLinks.smallThumbnail}
+          />
+        ) : null}
     </div>
   );
 }

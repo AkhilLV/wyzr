@@ -22,7 +22,6 @@ app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUniniti
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
