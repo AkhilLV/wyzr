@@ -7,7 +7,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:4000/auth/google/callback",
+    callbackURL: "https://pure-hamlet-46555.herokuapp.com/auth/google/callback",
     passReqToCallback: true,
   },
   ((request, accessToken, refreshToken, profile, done) => {

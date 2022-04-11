@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.REACT_CLIENT_URL,
     credentials: true,
   }),
 );
@@ -33,7 +33,7 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/search",
+    successRedirect: `${process.env.REACT_CLIENT_URL}/search`,
     failureRedirect: "/auth/google/failure",
   }),
 );

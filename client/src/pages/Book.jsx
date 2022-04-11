@@ -25,9 +25,9 @@ export default function Auth() {
           <SearchTile
             key={bookData.id}
             id={bookData.id}
-            title={bookData.volumeInfo.title}
-            authors={bookData.volumeInfo.authors}
-            thumbnail={bookData.volumeInfo.imageLinks.smallThumbnail}
+            title={bookData.volumeInfo.title || ""}
+            authors={bookData.volumeInfo.authors || []}
+            thumbnail={bookData.volumeInfo.imageLinks.smallThumbnail || ""}
           />
         ) : null}
     </div>

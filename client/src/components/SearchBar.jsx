@@ -1,4 +1,5 @@
 import { useState } from "react";
+import baseUrl from "../baseUrl";
 
 export default function SearchBar({ setSearchResults }) {
   const [query, setQuery] = useState("");
@@ -11,7 +12,7 @@ export default function SearchBar({ setSearchResults }) {
 
     setSearchResults(json.items);
 
-    await fetch(`http://localhost:4000/searches?q=${query}`, {
+    await fetch(`${baseUrl}/searches?q=${query}`, {
       method: "POST",
       credentials: "include",
     });
