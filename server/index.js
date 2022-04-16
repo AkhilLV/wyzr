@@ -1,9 +1,13 @@
+/* eslint-disable prefer-destructuring */
 const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
+
 require("dotenv").config();
 const cors = require("cors");
 const passport = require("passport");
+
+const { REACT_CLIENT_URL, SESSION_SECRET, CONNECTION_URL } = require("./config");
 require("./passportConfig");
 
 const SearchRoute = require("./routes/Search");
@@ -13,12 +17,12 @@ const PORT = process.env.PORT || 4000;
 
 app.use(
   cors({
-    origin: process.env.REACT_CLIENT_URL,
+    origin: REACT_CLIENT_URL,
     credentials: true,
   }),
 );
 
-app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
+app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -33,7 +37,7 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: `${process.env.REACT_CLIENT_URL}/search`,
+    successRedirect: `${REACT_CLIENT_URL}/search`,
     failureRedirect: "/auth/google/failure",
   }),
 );
@@ -58,8 +62,6 @@ const isLoggedIn = (req, res, next) => {
 };
 
 app.use("/searches", isLoggedIn, SearchRoute);
-
-const { CONNECTION_URL } = process.env;
 
 async function main() {
   await mongoose.connect(CONNECTION_URL);

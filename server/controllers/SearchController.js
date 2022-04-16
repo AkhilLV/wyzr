@@ -10,6 +10,7 @@ module.exports = {
       query,
     }, (err) => {
       if (err) throw err;
+      console.log("Query logged");
     });
   },
 };

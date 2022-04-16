@@ -1,1 +1,1 @@
-export default "https://pure-hamlet-46555.herokuapp.com";
+export default "http://localhost:4000";
